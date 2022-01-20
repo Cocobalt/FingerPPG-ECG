@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
+
+    defaultConfig {
+        applicationId "com.felhr.serialportexample"
+        minSdkVersion 21
+        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
+        versionName project.VERSION_NAME
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        multiDexEnabled true
+    }
+
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+}
+
+dependencies {
+    implementation project(':usbserial')
+
+    implementation "androidx.constraintlayout:constraintlayout:2.1.2"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
+    implementation 'com.jakewharton.timber:timber:4.6.0'
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    implementation 'com.github.duanhong169:picker-view:1.0.0'
+    implementation 'com.github.duanhong169:text-button:1.0.5'
+    implementation 'com.android.volley:volley:1.1.1'
+    implementation "ss.anoop:awesome-textinput-layout:1.0.3"
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    implementation 'com.opencsv:opencsv:4.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "com.google.android.material:material:1.1.0-alpha06"
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation "com.jakewharton:butterknife:10.0.0"
+    annotationProcessor'com.jakewharton:butterknife-compiler:10.0.0'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
+    implementation 'com.jakewharton.timber:timber:4.6.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'org.apache.commons:commons-csv:1.5'
+
+}
